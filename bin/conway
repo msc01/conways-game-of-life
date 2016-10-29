@@ -1,0 +1,26 @@
+#!/usr/bin/env ruby
+
+# ---
+# bin/conway -- Ruby "executable": Conway's Game of Life
+# ---
+module Conway
+  require_relative '../lib/conway'
+
+  SIZE = 9
+
+  board = Board.new(15, 30)
+
+  board.cells[1][1].set_alive
+  board.cells[5][1].set_alive
+  board.cells[1][5].set_alive
+  board.cells[9][9].set_alive
+  board.cells[4][7].set_alive
+  board.cells[2][7].set_alive
+  board.cells[12][3].set_alive
+  
+  while true
+    board.show
+    sleep 0.5
+    board.next_generation
+  end
+end
