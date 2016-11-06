@@ -1,7 +1,4 @@
-#!/usr/bin/env ruby
-
-require 'minitest/autorun'
-require_relative '../lib/conway'
+require_relative 'test_helper'
 
 module Conway
   # Minitest Unit Tests for a Cell

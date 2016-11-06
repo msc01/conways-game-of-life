@@ -2,7 +2,7 @@
 module Conway
   # Represents a single cell
   class Cell
-    def initialize(alive = false)
+    def initialize(alive: false)
       @alive = alive
     end
 

@@ -6,10 +6,10 @@
 module Conway
   require_relative '../lib/conway'
 
-  SIZE = 9
+  # TODO: Command line argument for size
+  board = Board.new(width: 35, height: 130)
 
-  board = Board.new(15, 30)
-
+  # TODO: Seed method to initialize board either randomly or from a file
   board.cells[1][1].set_alive
   board.cells[5][1].set_alive
   board.cells[1][5].set_alive
@@ -17,10 +17,9 @@ module Conway
   board.cells[4][7].set_alive
   board.cells[2][7].set_alive
   board.cells[12][3].set_alive
-  
+
   while true
     board.show
-    sleep 0.5
     board.next_generation
   end
 end

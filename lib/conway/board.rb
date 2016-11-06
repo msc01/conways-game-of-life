@@ -4,37 +4,10 @@ module Conway
   class Board
     attr_accessor :cells
 
-    def initialize(width = 3, height = 3)
+    def initialize(width: 3, height: 3)
       @width = width
       @height = height
       @cells = Array.new(width) { Array.new(height) { Cell.new } }
-    end
-
-    def number_of_neighboring_cells_alive(x, y)
-      number_of_cells_alive_in_an_array_of_cells(neighboring_cells(x, y))
-    end
-
-    def number_of_neighboring_cells(x, y)
-      neighboring_cells(x, y).size
-    end
-
-    def number_of_cells_alive_in_an_array_of_cells(array_of_cells)
-      array_of_cells.count { |c| c.alive? }
-    end
-
-    def neighboring_cells(x, y)
-      array_of_cells = []
-
-      array_of_cells << cells[x - 1][y - 1] if x > 0 && y > 0
-      array_of_cells << cells[x][y - 1]     if y > 0
-      array_of_cells << cells[x + 1][y - 1] if x < (@width - 1) && y > 0
-      array_of_cells << cells[x - 1][y]     if x > 0
-      array_of_cells << cells[x + 1][y]     if x < (@width - 1)
-      array_of_cells << cells[x - 1][y + 1] if x > 0 && y < (@height - 1)
-      array_of_cells << cells[x][y + 1]     if y < (@height - 1)
-      array_of_cells << cells[x + 1][y + 1] if x < (@width - 1) && y < (@height - 1)
-
-      array_of_cells
     end
 
     def next_generation
@@ -69,6 +42,27 @@ module Conway
         puts
         x += 1
       end
+    end
+
+    private
+
+    def number_of_neighboring_cells_alive(x, y)
+      neighboring_cells(x, y).count { |c| c.alive? }
+    end
+
+    def neighboring_cells(x, y)
+      array_of_cells = []
+
+      array_of_cells << cells[x - 1][y - 1] if x > 0 && y > 0
+      array_of_cells << cells[x][y - 1]     if y > 0
+      array_of_cells << cells[x + 1][y - 1] if x < (@width - 1) && y > 0
+      array_of_cells << cells[x - 1][y]     if x > 0
+      array_of_cells << cells[x + 1][y]     if x < (@width - 1)
+      array_of_cells << cells[x - 1][y + 1] if x > 0 && y < (@height - 1)
+      array_of_cells << cells[x][y + 1]     if y < (@height - 1)
+      array_of_cells << cells[x + 1][y + 1] if x < (@width - 1) && y < (@height - 1)
+
+      array_of_cells
     end
   end
 end
