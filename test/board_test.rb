@@ -49,14 +49,7 @@ module Conway
     end
 
     def test_output
-      skip
-      # TODO: Board::show should onl produce the string represenation of the board, which then can but puts, etc.
       @board.cells[1][1].set_alive
-      expected = <<-OUTPUT
-   
- * 
-   
-OUTPUT
       @board.show
     end
   end

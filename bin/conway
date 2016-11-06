@@ -21,6 +21,7 @@ module Conway
   board.cells[12][3].set_alive
 
   while true
+    system 'clear'
     board.show
     board.next_generation
   end

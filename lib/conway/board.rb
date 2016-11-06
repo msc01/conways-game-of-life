@@ -15,9 +15,11 @@ module Conway
       while x < @width
         y = 0
         while y < @height
+          # TODO: Rule 4 is missing!
           new_generation[x][y].kill      if number_of_neighboring_cells_alive(x, y) < 2
           new_generation[x][y].set_alive if number_of_neighboring_cells_alive(x, y) == 2 || number_of_neighboring_cells_alive(x, y) == 3
           new_generation[x][y].kill      if number_of_neighboring_cells_alive(x, y) > 3
+          new_generation[x][y].set_alive if number_of_neighboring_cells_alive(x, y) == 3
           y += 1
         end
         x += 1
@@ -26,7 +28,6 @@ module Conway
     end
 
     def show
-      system 'clear'
       x = 0
       while x < @width
         y = 0

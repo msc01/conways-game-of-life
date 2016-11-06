@@ -8,6 +8,10 @@ Simple Ruby implementation of [Conway's game of life][1].
 A simple implementation of [Conway's game of life][1] in Ruby developed during the [Global Day of Code Retreat][2] [2016 in Karlsruhe][3].
 
 ## ToDo
+Bugs:
+
+* Rule 4 is missing.
+
 Things which need to be done in further version:
 
 * Documentation.
