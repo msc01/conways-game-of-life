@@ -1,6 +1,5 @@
-# Conway's game of live
 module Conway
-  # Represents a single cell
+  # A cell is in one of two possible states, alive or dead.
   class Cell
     def initialize(alive: false)
       @alive = alive

@@ -1,6 +1,5 @@
-# Conway's game of live
 module Conway
-  # Represents a Board
+  # The board represents the universe of the Game of Life; it is a two-dimensional orthogonal grid of cells.
   class Board
     attr_accessor :cells
 

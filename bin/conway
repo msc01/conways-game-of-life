@@ -1,8 +1,10 @@
 #!/usr/bin/env ruby
 
 # ---
-# bin/conway -- Ruby "executable": Conway's Game of Life
+# bin/conway -- Ruby "executable" for Conway's Game of Life
 # ---
+
+# Module Conway as namespace
 module Conway
   require_relative '../lib/conway'
 
